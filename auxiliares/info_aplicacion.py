@@ -1,0 +1,1 @@
+nombre_aplicacion = 'Sistema de Gestion de Empleados    '

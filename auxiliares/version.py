@@ -1,0 +1,1 @@
+numero_version = '1.0.0' # primer numero cambios grandes(Version mayor) - segundo numero cambios menores(Version menor) - tercer numero arreglos(Parches)
