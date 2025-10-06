@@ -5,7 +5,7 @@ def menu_principal():
     print(f'{nombre_aplicacion}v.{numero_version}')
     print('================================')
     print()
-    print('[1] Gestionar Empleados')
+    print('[1]  Empleados')
     print('[2] Getion proyectos')
     print('[3] Gestion Horario')
     print('[0] Salir')
