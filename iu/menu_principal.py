@@ -20,7 +20,7 @@ from modelos.curso_profesor import CursoProfesor
 def menu_principal():
     """Muestra el menú principal y retorna la opción seleccionada."""
     print(f'\n{nombre_aplicacion} v.{numero_version}')
-    print('========== Bienvenido a Inacap ==========')
+    print('========== Bienvenidos ==========')
     print('[1] Admin')
     print('[2] Profesor')
     print('[3] Estudiante')
