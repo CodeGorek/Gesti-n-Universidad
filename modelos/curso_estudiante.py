@@ -1,4 +1,4 @@
-class EstudianteCurso:
+class CursoEstudiante:
     def __init__(self, id_estudiante_curso, matricula_estudiante, codigo_curso):
         self.id_estudiante_curso = id_estudiante_curso
         self.matricula_estudiante = matricula_estudiante  # FK a Estudiante

@@ -1,4 +1,4 @@
-class ProfesorCurso:
+class CursoProfesor:
     def __init__(self, id_profesor_curso, codigo_curso, id_profesor):
         self.id_profesor_curso = id_profesor_curso
         self.codigo_curso = codigo_curso          # FK a Curso  
@@ -11,6 +11,6 @@ class ProfesorCurso:
         print(f"ID Profesor: {self.id_profesor}")
 
     def __str__(self):
-        return f"ProfesorCurso {self.id_profesor_curso} - Curso {self.codigo_curso}"
+        return f"CursoProfesor {self.id_profesor_curso} - Curso {self.codigo_curso}"
     
     

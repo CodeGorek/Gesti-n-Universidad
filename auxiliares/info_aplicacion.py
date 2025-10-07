@@ -1,1 +1,1 @@
-nombre_aplicacion = 'Sistema de Gestion de Empleados    '
+nombre_aplicacion = 'Sistema de Gestion de Universidad'

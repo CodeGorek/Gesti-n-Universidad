@@ -29,7 +29,7 @@ CREATE TABLE CURSO_PROFESOR IF NOT EXISTS (
 
 
 CREATE TABLE CURSO IF NOT EXISTS (
-    cod_curso VARCHAR(10) NOT NULL,
+    codigo_curso VARCHAR(10) NOT NULL,
     nombre VARCHAR(100) NOT NULL,
     creditos INT NOT NULL,
     cod_carrera VARCHAR(10) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE CURSO IF NOT EXISTS (
 );
 
 CREATE TABLE ESTUDIANTE IF NOT EXISTS (
-    cod_estudiante VARCHAR(10) NOT NULL,
+    matricula_estudiante VARCHAR(10) NOT NULL,
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
     fecha_nacimiento DATE NOT NULL,
@@ -46,19 +46,19 @@ CREATE TABLE ESTUDIANTE IF NOT EXISTS (
     telefono VARCHAR(15),
     email VARCHAR(100),
     cod_carrera VARCHAR(10) NOT NULL,
-    constraint pk_estudiante primary key(cod_estudiante), # definir la clave primaria 
+    constraint pk_estudiante primary key(matricula_estudiante), # definir la clave primaria 
     constraint fk_carrera foreign key(cod_carrera) references carrera(cod_carrera) # definir la clave foranea 
 );
 
 CREATE TABLE HORARIO IF NOT EXISTS (
-    cod_horario VARCHAR(10) NOT NULL,
-    cod_curso VARCHAR(10) NOT NULL,
+    id_horario VARCHAR(10) NOT NULL,
+    codigo_curso VARCHAR(10) NOT NULL,
     dia_semana INT NOT NULL, # 1= Lunes, 2= Martes, ..., 7= Domingo
     hora_inicio TIME NOT NULL,
     hora_fin TIME NOT NULL,
     aula VARCHAR(50) NOT NULL,
-    constraint pk_horario primary key(cod_horario), # definir la clave primaria 
-    constraint fk_curso foreign key(cod_curso) references curso(cod_curso) # definir la clave foranea 
+    constraint pk_horario primary key(id_horario), # definir la clave primaria 
+    constraint fk_curso foreign key(codigo_curso) references curso(codigo_curso) # definir la clave foranea 
 );
 
 CREATE TABLE PROFESOR IF NOT EXISTS (
@@ -71,6 +71,8 @@ CREATE TABLE PROFESOR IF NOT EXISTS (
 
 CREATE TABLE RECURSOS IF NOT EXISTS (
     id_recurso INT NOT NULL AUTO_INCREMENT,
+    nombre_recurso VARCHAR(30) NOT NULL  
+    tipo_recurso VARCHAR(20) NOT NULL, # (video, documento, enlace, formato, etc.)
     codigo_curso VARCHAR(10) NOT NULL,
     id_profesor VARCHAR(10) NOT NULL,
     url VARCHAR(200) NOT NULL,
