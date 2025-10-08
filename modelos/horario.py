@@ -1,16 +1,16 @@
 
 
 class Horarios:
-    def __init__(self, id_horario, seccion, dia):
-        self.id_horario = id_horario
-        self.seccion = seccion
-        self.dia = dia
+    def __init__(self, cod_horario, sección, día):
+        self.cod_horario = cod_horario
+        self.sección = sección
+        self.día = día
     
     def mostrar_info(self):
         print("--- Información del Horario ---")
-        print(f"ID Horario: {self.id_horario}")
-        print(f"Sección: {self.seccion}")
-        print(f"Día: {self.dia}")
+        print(f"Codigo Horario: {self.cod_horario}")
+        print(f"Sección: {self.sección}")
+        print(f"Día: {self.día}")
 
     def __str__(self):
-        return f"Horario ID: {self.id_horario}, Sección: {self.seccion}, Día: {self.dia}"
+        return f"Horario ID: {self.cod_horario}, Sección: {self.sección}, Día: {self.día}"

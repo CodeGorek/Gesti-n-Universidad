@@ -10,8 +10,8 @@ from modelos.estudiante import Estudiante
 from modelos.profesor import Profesor
 from modelos.recursos import Recursos
 from modelos.horario import Horarios
-from modelos.curso_estudiante import CursoEstudiante
-from modelos.curso_profesor import CursoProfesor
+from modelos.estudiante_curso import EstudianteCurso
+from modelos.profesor_curso import ProfesorCurso
 
 
 # ------------------------------
@@ -87,7 +87,7 @@ def cuenta_estudiante():
 
 def cuenta_invitado():
     """Acceso libre para invitados."""
-    print('\n👋 Acceso como Invitado. Bienvenido.')
+    print('\n Acceso como Invitado. Bienvenido.')
     return True
 
 
@@ -95,7 +95,7 @@ def cuenta_invitado():
 #   SALIDA
 # ------------------------------
 def opcion_salir():
-    print('\nSaliendo de la aplicación. Hasta luego!')
+    print('\n Saliendo de la aplicación. Hasta luego!')
     exit(0)
 
 

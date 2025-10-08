@@ -1,17 +1,22 @@
 
 class Recursos():
-    def __init__(self, id_recurso, codigo_curso, id_profesor, url):
-        self.id_recurso = id_recurso  # PK
-        self.codigo_curso = codigo_curso  # FK a Curso
-        self.id_profesor = id_profesor  # FK a Profesor
+    def __init__(self, cod_recurso, cod_curso, cod_profesor, url, tipo_recurso, nombre_recurso):
+        self.cod_recurso = cod_recurso  # PK
+        self.cod_curso = cod_curso  # FK a Curso
+        self.cod_profesor = cod_profesor  # FK a Profesor
         self.url = url
+        self.tipo_recurso = tipo_recurso  # formato, 'video', 'documento'
+        self.nombre_recurso = nombre_recurso
 
     def mostrar_info(self):
         print("=== Información del Recurso ===")
-        print(f"ID Recurso: {self.id_recurso}")
-        print(f"Nombre: {self.nombre}")
-        print(f"Tipo: {self.tipo}")
-        print(f"URL: {self.url}")
+        print(f"Codigo del recurso: {self.cod_recurso}")
+        print(f"Nombre del recurso: {self.nombre_recurso}")
+        print(f"Tipo del recurso: {self.tipo_recurso}")
+        print(f"link URL: {self.url}")
+        print(f"Código del Curso: {self.cod_curso}")
+        print(f"Código del Profesor: {self.cod_profesor}")
+
     
     def __str__(self):
-        return f"Recurso {self.id_recurso} - Curso {self.codigo_curso} - Profesor {self.id_profesor}"
+        return f"Recurso {self.cod_recurso} - Curso {self.cod_curso} - Profesor {self.cod_profesor}"
