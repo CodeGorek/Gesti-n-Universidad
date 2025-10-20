@@ -7,8 +7,8 @@ from modelos.recursos import Recursos
 from modelos.carrera import Carrera
 from modelos.curso import Curso
 from modelos.horario import Horarios
-from modelos.estudiante_curso import CursoEstudiante
-from modelos.profesor_curso import CursoProfesor
+from modelos.estudiante_curso import EstudianteCurso
+from modelos.profesor_curso import ProfesorCurso
 # ------------------------------
 #   INICIO DE LA APLICACIÓN
 # ------------------------------

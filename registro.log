@@ -1,0 +1,6 @@
+2025-10-20 12:41:48 | INFO | Usuario: admin | Tipo: ERROR | Contraseña incorrecta. Intento 1/3
+2025-10-20 12:42:01 | INFO | Usuario: admin | Tipo: ERROR | Contraseña incorrecta. Intento 2/3
+2025-10-20 12:42:38 | INFO | Usuario: admin | Tipo: LOGIN | Acceso exitoso
+2025-10-20 12:45:26 | INFO | Usuario: profesor | Tipo: LOGIN | Acceso exitoso
+2025-10-20 12:50:29 | INFO | Usuario: Jose Gonzales | Tipo: LOGIN | Acceso exitoso
+2025-10-20 12:51:08 | INFO | Usuario: invitado | Tipo: INFO | Ingreso como invitado
