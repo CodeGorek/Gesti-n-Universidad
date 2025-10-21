@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS PROFESOR_CURSO (
     constraint fk_profesor foreign key(cod_profesor) references profesor(cod_profesor) # definir la clave foranea
 );
 
-CREATE TABLE CURSO IF NOT EXISTS (
+CREATE TABLE IF NOT EXISTS CURSO (
     cod_curso VARCHAR(20) NOT NULL,
     nombre VARCHAR(30) NOT NULL,
     creditos INT NOT NULL,
