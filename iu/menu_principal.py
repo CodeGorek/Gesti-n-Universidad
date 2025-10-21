@@ -8,8 +8,6 @@ from modelos.carrera import Carrera
 from modelos.curso import Curso
 from modelos.estudiante import Estudiante
 from modelos.profesor import Profesor
-from modelos.recursos import Recursos
-from modelos.horario import Horarios
 from modelos.estudiante_curso import EstudianteCurso
 from modelos.profesor_curso import ProfesorCurso
 import json
@@ -21,9 +19,9 @@ import binascii
 import logging
 from datetime import datetime
 
-# ------------------------------
+
 #   MENÚ PRINCIPAL
-# ------------------------------
+
 def menu_principal():
     """Muestra el menú principal y retorna la opción seleccionada."""
     print(f'\n{nombre_aplicacion} v.{numero_version}')
@@ -40,9 +38,9 @@ def menu_principal():
 
 
 
-# -------------------------------
+
 # CONFIGURACIÓN LOGGING
-# -------------------------------
+
 LOG_FILE = "registro.log"
 logging.basicConfig(
     filename=LOG_FILE,
@@ -51,9 +49,9 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S"
 )
 
-# -------------------------------
+
 # FUNCIONES DE UTILIDAD
-# -------------------------------
+
 
 def log_event(usuario, tipo, mensaje):
     """Registra un evento en el archivo de log."""
@@ -85,9 +83,9 @@ def guardar_datos(nombre_archivo, datos):
     with open(nombre_archivo, "w") as f:
         json.dump(datos, f, indent=4)
 
-# -------------------------------
+
 # BASE DE DATOS SIMPLIFICADA
-# -------------------------------
+
 usuarios = cargar_datos("usuarios.json", {
     "admin": {"rol": "admin", "password": hash_password("admin123")},
     "profesor": {"rol": "profesor", "password": hash_password("prof123")},
@@ -95,14 +93,16 @@ usuarios = cargar_datos("usuarios.json", {
     "invitado": {"rol": "invitado", "password": ""}
 })
 
+codigo_cursos = cargar_datos("codigo_cursos.json", {})
 cursos = cargar_datos("cursos.json", [])
 feriados = cargar_datos("feriados.json", [])
+prof_cursos = cargar_datos("prof_cursos.json", {})
+creditos_cursos = cargar_datos("creditos_cursos.json", {})
 
 guardar_datos("usuarios.json", usuarios)
 
-# -------------------------------
+
 # MENÚS DE CUENTAS
-# -------------------------------
 
 def menu_admin():
     while True:
@@ -151,6 +151,9 @@ def menu_admin():
             nombre = input("Nombre del curso: ")
             dia = input("Día (Lunes-Viernes): ")
             turno = input("Turno (Diurno/Vespertino): ")
+            prof_curso = input("Profesor asignado: ")
+            codigo_cursos = input("Código del curso: ")
+            creditos_cursos = input("Créditos del curso: ")
             cursos.append({"curso": nombre, "dia": dia, "turno": turno})
             guardar_datos("cursos.json", cursos)
             print("Curso agregado.")
@@ -180,7 +183,9 @@ def menu_profesor(usuario):
     print("0. Salir")
     opcion = input("Opción: ")
     if opcion == "1":
-        print("Cursos asignados (demo): Matemáticas, Historia")
+        print(f"Cursos asignados a {usuario}:")
+        for cursos in prof_cursos.get(usuario, []):
+            print(f"- {cursos}")
     elif opcion == "2":
         print("Días feriados/no clases:")
         for f in feriados:
@@ -227,9 +232,9 @@ def menu_invitado():
     for c in cursos:
         print(f"- {c['curso']} ({c['dia']}, {c['turno']})")
 
-# -------------------------------
+
 # LOGIN GENERAL
-# -------------------------------
+
 def login():
     print("\n=== INICIO DE SESIÓN ===")
     usuario = input("Usuario: ")

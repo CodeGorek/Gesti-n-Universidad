@@ -48,13 +48,6 @@ CREATE TABLE ESTUDIANTE IF NOT EXISTS (
     constraint uq_correo unique(correo_estudiante) # definir la restricción de unicidad
 );
 
-CREATE TABLE HORARIO IF NOT EXISTS (
-    cod_horario INT NOT NULL,
-    sección INT NOT NULL,
-    dia INT NOT NULL, # 1= Lunes, 2= Martes, ..., 7= Domingo
-    constraint pk_horario primary key(cod_horario), # definir la clave primaria 
-    constraint uq_seccion_dia unique(sección, dia) # definir la restricción de unicidad
-);
 
 CREATE TABLE PROFESOR IF NOT EXISTS (
     cod_profesor INT NOT NULL, AUTO_INCREMENT
@@ -65,18 +58,4 @@ CREATE TABLE PROFESOR IF NOT EXISTS (
     constraint uq_correo unique(correo_profesor) # definir la restricción de unicidad
 );
 
-CREATE TABLE RECURSOS IF NOT EXISTS (
-    cod_recurso INT NOT NULL AUTO_INCREMENT,
-    cod_curso VARCHAR(20) NOT NULL,
-    cod_profesor INT NOT NULL, AUTO_INCREMENT
-    url VARCHAR(255) NOT NULL,
-    tipo_recurso VARCHAR(30) NOT NULL, # (video, documento, enlace, formato, etc.)
-    nombre_recurso VARCHAR(30) NOT NULL  
-    constraint pk_recurso primary key(cod_recurso), # definir la clave primaria 
-    constraint fk_curso foreign key(cod_curso) references curso(cod_curso), # definir la clave foranea 
-    constraint fk_profesor foreign key(cod_profesor) references profesor(cod_profesor) # definir la clave foranea
-    constraint uq_nombre_recurso unique(nombre_recurso) # definir la restricción de unicidad
-    constraint chk_tipo_recurso check (tipo_recurso IN ('video', 'documento', 'enlace', 'formato')
-    constraint chk_url check (url LIKE 'http%' OR url LIKE 'https%'
-);
 
