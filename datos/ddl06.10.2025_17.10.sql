@@ -1,14 +1,14 @@
 USE iec_170_n2;
 
-CREATE TABLE carrera IF NOT EXISTS (
+CREATE TABLE IF NOT EXISTS carreras(
     cod_carrera VARCHAR(30) NOT NULL,
     descripción VARCHAR(200) NOT NULL,
     creditos_max_semestre INT NOT NULL,
     semestre_duracion INT NOT NULL,
-    constraint pk_carrera primary key(cod_carrera) # definir la clave primaria     
+    constraint pk_carrera primary key(cod_carrera)    
 );
 
-CREATE TABLE ESTUDIANTE_CURSO IF NOT EXISTS (
+CREATE TABLE IF NOT EXISTS ESTUDIANTE_CURSO(
     cod_estudiante_curso INT NOT NULL, AUTO_INCREMENT
     matricula_estudiante INT NOT NULL, AUTO_INCREMENT
     cod_curso VARCHAR(20) NOT NULL,
@@ -17,10 +17,10 @@ CREATE TABLE ESTUDIANTE_CURSO IF NOT EXISTS (
     constraint fk_estudiante foreign key(matricula_estudiante) references estudiante(matricula_estudiante) # definir la clave foranea 
 );
 
-CREATE TABLE PROFESOR_CURSO IF NOT EXISTS (
+CREATE TABLE IF NOT EXISTS PROFESOR_CURSO (
     cod_profesor_curso INT NOT NULL AUTO_INCREMENT,
     cod_curso VARCHAR(20) NOT NULL,
-    cod_profesor INT NOT NULL, AUTO_INCREMENT,
+    cod_profesor INT NOT NULL,
     constraint pk_profesor_curso primary key(cod_profesor_curso), # definir la clave primaria 
     constraint fk_curso foreign key(cod_curso) references curso(cod_curso), # definir la clave foranea 
     constraint fk_profesor foreign key(cod_profesor) references profesor(cod_profesor) # definir la clave foranea
@@ -34,11 +34,10 @@ CREATE TABLE CURSO IF NOT EXISTS (
     pre_requisitos VARCHAR(30),NOT NULL
     cod_horario INT NOT NULL,
     constraint pk_curso primary key(cod_curso), # definir la clave primaria 
-    constraint fk_carrera foreign key(cod_carrera) references carrera(cod_carrera) # definir la clave foranea 
-    constraint fk_horario foreign key(cod_horario) references horario(cod_horario) # definir la clave foranea
+    constraint fk_carrera foreign key(cod_carrera) references carrera(cod_carrera) # definir la clave foranea
 );
 
-CREATE TABLE ESTUDIANTE IF NOT EXISTS (
+CREATE TABLE IF NOT EXISTS ESTUDIANTE (
     matricula_estudiante INT NOT NULL AUTO_INCREMENT,
     nombre_estudiante VARCHAR(100) NOT NULL,
     correo_estudiante VARCHAR(40) NOT NULL,
@@ -48,15 +47,7 @@ CREATE TABLE ESTUDIANTE IF NOT EXISTS (
     constraint uq_correo unique(correo_estudiante) # definir la restricción de unicidad
 );
 
-CREATE TABLE HORARIO IF NOT EXISTS (
-    cod_horario INT NOT NULL,
-    sección INT NOT NULL,
-    dia INT NOT NULL, # 1= Lunes, 2= Martes, ..., 7= Domingo
-    constraint pk_horario primary key(cod_horario), # definir la clave primaria 
-    constraint uq_seccion_dia unique(sección, dia) # definir la restricción de unicidad
-);
-
-CREATE TABLE PROFESOR IF NOT EXISTS (
+CREATE TABLE IF NOT EXISTS PROFESOR(
     cod_profesor INT NOT NULL, AUTO_INCREMENT
     nombre_profesor VARCHAR(30) NOT NULL,
     correo_profesor VARCHAR(30) NOT NULL,
@@ -64,19 +55,3 @@ CREATE TABLE PROFESOR IF NOT EXISTS (
     constraint pk_profesor primary key(cod_profesor) # definir la clave primaria 
     constraint uq_correo unique(correo_profesor) # definir la restricción de unicidad
 );
-
-CREATE TABLE RECURSOS IF NOT EXISTS (
-    cod_recurso INT NOT NULL AUTO_INCREMENT,
-    cod_curso VARCHAR(20) NOT NULL,
-    cod_profesor INT NOT NULL, AUTO_INCREMENT
-    url VARCHAR(255) NOT NULL,
-    tipo_recurso VARCHAR(30) NOT NULL, # (video, documento, enlace, formato, etc.)
-    nombre_recurso VARCHAR(30) NOT NULL  
-    constraint pk_recurso primary key(cod_recurso), # definir la clave primaria 
-    constraint fk_curso foreign key(cod_curso) references curso(cod_curso), # definir la clave foranea 
-    constraint fk_profesor foreign key(cod_profesor) references profesor(cod_profesor) # definir la clave foranea
-    constraint uq_nombre_recurso unique(nombre_recurso) # definir la restricción de unicidad
-    constraint chk_tipo_recurso check (tipo_recurso IN ('video', 'documento', 'enlace', 'formato')
-    constraint chk_url check (url LIKE 'http%' OR url LIKE 'https%'
-);
-
