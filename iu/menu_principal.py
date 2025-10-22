@@ -1,7 +1,6 @@
-# ================================
-#   Sistema de Gestión Universidad
-# ================================
 
+#   Sistema de Gestión Universidad
+from datos.obtener_datos import obtener_lista_objetos
 from auxiliares.info_aplicacion import nombre_aplicacion
 from auxiliares.version import numero_version
 from modelos.carrera import Carrera
@@ -10,13 +9,8 @@ from modelos.estudiante import Estudiante
 from modelos.profesor import Profesor
 from modelos.estudiante_curso import EstudianteCurso
 from modelos.profesor_curso import ProfesorCurso
-import json
 import os
 import sys
-import getpass
-import hashlib
-import binascii
-import logging
 from datetime import datetime
 
 
@@ -37,51 +31,19 @@ def menu_principal():
 
 
 
-
-
-# CONFIGURACIÓN LOGGING
-
-LOG_FILE = "registro.log"
-logging.basicConfig(
-    filename=LOG_FILE,
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)s | %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S"
-)
-
-
 # FUNCIONES DE UTILIDAD
 
-
-def log_event(usuario, tipo, mensaje):
-    """Registra un evento en el archivo de log."""
-    logging.info(f"Usuario: {usuario} | Tipo: {tipo} | {mensaje}")
-
-def hash_password(password):
-    """Genera un hash encriptado con salt PBKDF2."""
-    salt = hashlib.sha256(os.urandom(60)).hexdigest().encode("ascii")
-    pwdhash = hashlib.pbkdf2_hmac("sha512", password.encode("utf-8"), salt, 100000)
-    pwdhash = binascii.hexlify(pwdhash)
-    return (salt + pwdhash).decode("ascii")
-
-def verify_password(stored_password, provided_password):
-    """Verifica si la contraseña ingresada coincide con el hash almacenado."""
-    salt = stored_password[:64]
-    stored_hash = stored_password[64:]
-    pwdhash = hashlib.pbkdf2_hmac("sha512", provided_password.encode("utf-8"), salt.encode("ascii"), 100000)
-    pwdhash = binascii.hexlify(pwdhash).decode("ascii")
-    return pwdhash == stored_hash
 
 def cargar_datos(nombre_archivo, por_defecto):
     if os.path.exists(nombre_archivo):
         with open(nombre_archivo, "r") as f:
-            return json.load(f)
+            return obtener_lista_objetos(f)
     else:
         return por_defecto
 
 def guardar_datos(nombre_archivo, datos):
     with open(nombre_archivo, "w") as f:
-        json.dump(datos, f, indent=4)
+        obtener_lista_objetos(datos, f, indent=4)
 
 
 # BASE DE DATOS SIMPLIFICADA
@@ -93,13 +55,13 @@ usuarios = cargar_datos("usuarios.json", {
     "invitado": {"rol": "invitado", "password": ""}
 })
 
-codigo_cursos = cargar_datos("codigo_cursos.json", {})
+codigo_cursos = cargar_datos("codigo_cursos.obtener_lista_objetos", {})
 cursos = cargar_datos("cursos.json", [])
 feriados = cargar_datos("feriados.json", [])
 prof_cursos = cargar_datos("prof_cursos.json", {})
 creditos_cursos = cargar_datos("creditos_cursos.json", {})
 
-guardar_datos("usuarios.json", usuarios)
+guardar_datos(obtener_lista_objetos", usuarios)
 
 
 # MENÚS DE CUENTAS
@@ -116,6 +78,7 @@ def menu_admin():
         print("7. Borrar curso")
         print("8. Agregar feriado")
         print("9. Ver feriados")
+        print("10.ver cursos actuales")
         print("0. Salir")
         opcion = input("Seleccione opción: ")
 
@@ -268,13 +231,13 @@ def login():
                 print("Demasiados intentos fallidos.")
                 return None
 
-# -------------------------------
 # MENÚ PRINCIPAL
-# -------------------------------
+
 def menu_principal():
     while True:
         print("\n=== SISTEMA DE MATRÍCULA ===")
         print("1. Iniciar sesión")
+        print("2. Acceso como invitado")
         print("0. Salir")
         opcion = input("Opción: ")
 
@@ -288,16 +251,18 @@ def menu_principal():
                     menu_profesor(usuario)
                 elif rol == "estudiante":
                     menu_estudiante(usuario)
-                elif rol == "invitado":
-                    menu_invitado()
+        elif opcion == "2":                                           
+            menu_invitado()        
         elif opcion == "0":
             print("Hasta luego.")
             sys.exit()
         else:
             print("Opción inválida.")
 
-# -------------------------------
 # EJECUCIÓN
-# -------------------------------
+
 if __name__ == "__main__":
     menu_principal()
+
+
+
