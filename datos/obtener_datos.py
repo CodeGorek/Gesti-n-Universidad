@@ -1,6 +1,6 @@
 from datos.conexion import Session
 from modelos.carrera import Carrera
-from sqlalchemy import f
+from sqlalchemy import func
 
 sesion = Session()
 

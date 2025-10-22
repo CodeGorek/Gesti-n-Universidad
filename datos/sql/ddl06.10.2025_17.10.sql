@@ -26,15 +26,14 @@ CREATE TABLE IF NOT EXISTS PROFESOR_CURSO (
     constraint fk_profesor foreign key(cod_profesor) references profesor(cod_profesor) # definir la clave foranea
 );
 
-CREATE TABLE IF NOT EXISTS CURSO (
+CREATE TABLE IF NOT EXISTS cursos(
     cod_curso VARCHAR(20) NOT NULL,
     nombre VARCHAR(30) NOT NULL,
     creditos INT NOT NULL,
     cod_carrera VARCHAR(30) NOT NULL,
-    pre_requisitos VARCHAR(30),NOT NULL
-    cod_horario INT NOT NULL,
-    constraint pk_curso primary key(cod_curso), # definir la clave primaria 
-    constraint fk_carrera foreign key(cod_carrera) references carrera(cod_carrera) # definir la clave foranea
+    pre_requisitos VARCHAR(30) NOT NULL,
+    constraint pk_cursos primary key(cod_curso), # definir la clave primaria 
+    constraint fk_carreras foreign key(cod_carrera) references carreras(cod_carrera) # definir la clave foranea
 );
 
 CREATE TABLE IF NOT EXISTS ESTUDIANTE (

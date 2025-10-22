@@ -18,3 +18,21 @@
 2025-10-20 18:19:02 | INFO | Usuario: Jose Gonzales | Tipo: LOGIN | Acceso exitoso
 2025-10-20 18:20:41 | INFO | Usuario: admin | Tipo: LOGIN | Acceso exitoso
 2025-10-20 18:40:32 | INFO | Usuario: estudiante | Tipo: LOGIN | Acceso exitoso
+2025-10-21 14:18:24 | INFO | package: mysql.connector.plugins
+2025-10-21 14:18:24 | INFO | plugin_name: caching_sha2_password
+2025-10-21 14:18:24 | INFO | AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-10-21 14:18:53 | INFO | package: mysql.connector.plugins
+2025-10-21 14:18:53 | INFO | plugin_name: caching_sha2_password
+2025-10-21 14:18:53 | INFO | AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-10-21 14:27:01 | INFO | package: mysql.connector.plugins
+2025-10-21 14:27:01 | INFO | plugin_name: caching_sha2_password
+2025-10-21 14:27:01 | INFO | AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-10-22 16:09:18 | INFO | package: mysql.connector.plugins
+2025-10-22 16:09:18 | INFO | plugin_name: caching_sha2_password
+2025-10-22 16:09:18 | INFO | AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-10-22 16:09:54 | INFO | package: mysql.connector.plugins
+2025-10-22 16:09:54 | INFO | plugin_name: caching_sha2_password
+2025-10-22 16:09:54 | INFO | AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-10-22 16:14:15 | INFO | package: mysql.connector.plugins
+2025-10-22 16:14:15 | INFO | plugin_name: caching_sha2_password
+2025-10-22 16:14:15 | INFO | AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
