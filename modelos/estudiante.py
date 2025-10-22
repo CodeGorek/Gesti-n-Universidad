@@ -1,11 +1,11 @@
 
 class Estudiante:
-    def __init__(self, matricula_estudiante, nombre_estudiante, correo_estudiante, fecha_nacimiento, dirección_estudiante):
+    def __init__(self, matricula_estudiante,nombre_estudiante , correo_estudiante, fecha_nacimiento, direccion_estudiante):
         self.matricula_estudiante = matricula_estudiante
         self.nombre_estudiante = nombre_estudiante
         self.correo_estudiante = correo_estudiante
         self.fecha_nacimiento = fecha_nacimiento
-        self.dirección_estudiante = dirección_estudiante
+        self.direccion_estudiante = dirección_estudiante
 
     def mostrar_info(self):
         print("=== Información del Estudiante ===")
