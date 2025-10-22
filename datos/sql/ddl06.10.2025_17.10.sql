@@ -46,12 +46,7 @@ CREATE TABLE IF NOT EXISTS ESTUDIANTE (
     constraint uq_correo unique(correo_estudiante) # definir la restricción de unicidad
 );
 
-<<<<<<< HEAD:datos/sql/ddl06.10.2025_17.10.sql
-
-CREATE TABLE PROFESOR IF NOT EXISTS (
-=======
 CREATE TABLE IF NOT EXISTS PROFESOR(
->>>>>>> 2cef96508dc6e4e3e2fa05c6e9d5654b677595e2:datos/ddl06.10.2025_17.10.sql
     cod_profesor INT NOT NULL, AUTO_INCREMENT
     nombre_profesor VARCHAR(30) NOT NULL,
     correo_profesor VARCHAR(30) NOT NULL,
@@ -59,8 +54,12 @@ CREATE TABLE IF NOT EXISTS PROFESOR(
     constraint pk_profesor primary key(cod_profesor) # definir la clave primaria 
     constraint uq_correo unique(correo_profesor) # definir la restricción de unicidad
 );
-<<<<<<< HEAD:datos/sql/ddl06.10.2025_17.10.sql
-
-
-=======
->>>>>>> 2cef96508dc6e4e3e2fa05c6e9d5654b677595e2:datos/ddl06.10.2025_17.10.sql
+CREATE TABLE IF NOT EXISTS CARRERA_CURSOS (
+    cod_carrera_curso INT NOT NULL AUTO_INCREMENT,
+    cod_curso VARCHAR(20) NOT NULL,
+    cod_carrera INT NOT NULL,
+    constraint pk_carrera_curso primary key(cod_carrera_curso), # definir la clave primaria 
+    constraint fk_curso foreign key(cod_curso) references curso(cod_curso), # definir la clave foranea 
+    constraint fk_carrera foreign key(cod_carrera) references profesor(cod_carrera) # definir la clave foranea
+);
+/* Para asociar muchas carreras y muchos cursos*/ 
