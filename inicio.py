@@ -11,4 +11,21 @@ from modelos.profesor_curso import ProfesorCurso
 #   INICIO DE LA APLICACIÓN
 # ------------------------------
 
-menu_principal()
+from modelos.carrera import Carrera
+from datos.obtener_datos import obtener_lista_objetos
+from prettytable import PrettyTable
+from modelos.carrera import Carrera
+
+
+def listado_carreras():
+    tabla_carreras = PrettyTable()
+    tabla_carreras.field_names = ['Cod_carrera', 'Descripcion', 'Creditos_max','Semestres']
+    listado_carreras = obtener_lista_objetos()
+    if listado_carreras:
+        for carrera in listado_carreras:
+            tabla_carreras.add_row(
+                [carrera.cod_carrera, carrera.descripcion, carrera.creditos_max_semestre, carrera.semestre_duracion])
+            # print(f'{carrera.cod_carrera} {carrera.descripcion} {carrera.creditos_max_semestre},{carrera.semestre_duracion}')
+        print(tabla_carreras)
+
+listado_carreras()
