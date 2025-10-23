@@ -2,7 +2,7 @@ USE iec_170_n2;
 
 CREATE TABLE IF NOT EXISTS carreras(
     cod_carrera VARCHAR(30) NOT NULL,
-    descripción VARCHAR(200) NOT NULL,
+    carrera VARCHAR(200) NOT NULL,
     creditos_max_semestre INT NOT NULL,
     semestre_duracion INT NOT NULL,
     constraint pk_carrera primary key(cod_carrera)    
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS PROFESOR_CURSO (
 
 CREATE TABLE IF NOT EXISTS cursos(
     cod_curso VARCHAR(20) NOT NULL,
-    nombre VARCHAR(30) NOT NULL,
+    curso VARCHAR(30) NOT NULL,
     creditos INT NOT NULL,
     cod_carrera VARCHAR(30) NOT NULL,
     pre_requisitos VARCHAR(30) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS cursos(
 
 CREATE TABLE IF NOT EXISTS ESTUDIANTE (
     matricula_estudiante INT NOT NULL AUTO_INCREMENT,
-    nombre_estudiante VARCHAR(100) NOT NULL,
+    estudiante VARCHAR(100) NOT NULL,
     correo_estudiante VARCHAR(40) NOT NULL,
     fecha_nacimiento DATE NOT NULL,
     direccion_estudiante: VARCHAR(40), NOT NULL
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS ESTUDIANTE (
 
 CREATE TABLE IF NOT EXISTS PROFESOR(
     cod_profesor INT NOT NULL, AUTO_INCREMENT
-    nombre_profesor VARCHAR(30) NOT NULL,
+    profesor VARCHAR(30) NOT NULL,
     correo_profesor VARCHAR(30) NOT NULL,
     especialidad VARCHAR(30),
     constraint pk_profesor primary key(cod_profesor) # definir la clave primaria 

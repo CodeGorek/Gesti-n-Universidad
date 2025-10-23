@@ -1,9 +1,9 @@
 
 
 class Profesor:
-    def __init__(self,cod_profesor, nombre_profesor, correo_profesor, especialidad):
+    def __init__(self,cod_profesor, profesor, correo_profesor, especialidad):
         self.cod_profesor = cod_profesor  # PK
-        self.nombre_profesor = nombre_profesor
+        self.nombre_profesor = profesor
         self.correo_profesor = correo_profesor
         self.especialidad = especialidad
 
