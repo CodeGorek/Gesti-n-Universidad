@@ -2,7 +2,7 @@ USE iec_170_n2;
 
 CREATE TABLE IF NOT EXISTS carreras(
     cod_carrera VARCHAR(30) NOT NULL,
-    carrera VARCHAR(200) NOT NULL,
+    nombre_carrera VARCHAR(200) NOT NULL,
     creditos_max_semestre INT NOT NULL,
     semestre_duracion INT NOT NULL,
     constraint pk_carrera primary key(cod_carrera)    
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS PROFESOR_CURSO (
 
 CREATE TABLE IF NOT EXISTS cursos(
     cod_curso VARCHAR(20) NOT NULL,
-    curso VARCHAR(30) NOT NULL,
+    nombre_curso VARCHAR(30) NOT NULL,
     creditos INT NOT NULL,
     cod_carrera VARCHAR(30) NOT NULL,
     pre_requisitos VARCHAR(30) NOT NULL,
@@ -36,15 +36,16 @@ CREATE TABLE IF NOT EXISTS cursos(
     constraint fk_carreras foreign key(cod_carrera) references carreras(cod_carrera) # definir la clave foranea
 );
 
-CREATE TABLE IF NOT EXISTS ESTUDIANTE (
+CREATE TABLE IF NOT EXISTS estudiantes(
     matricula_estudiante INT NOT NULL AUTO_INCREMENT,
-    estudiante VARCHAR(100) NOT NULL,
+    nombre_estudiante VARCHAR(100) NOT NULL,
     correo_estudiante VARCHAR(40) NOT NULL,
     fecha_nacimiento DATE NOT NULL,
     direccion_estudiante: VARCHAR(40), NOT NULL
+    habilitado: Bolean
     constraint pk_estudiante primary key(matricula_estudiante), # definir la clave primaria 
     constraint uq_correo unique(correo_estudiante) # definir la restricción de unicidad
-);
+);  
 
 CREATE TABLE IF NOT EXISTS PROFESOR(
     cod_profesor INT NOT NULL, AUTO_INCREMENT

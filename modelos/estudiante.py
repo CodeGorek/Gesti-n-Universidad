@@ -1,19 +1,14 @@
 
-class Estudiante:
-    def __init__(self, matricula_estudiante,estudiante , correo_estudiante, fecha_nacimiento, direccion_estudiante):
-        self.matricula_estudiante = matricula_estudiante
-        self.nombre_estudiante = estudiante
-        self.correo_estudiante = correo_estudiante
-        self.fecha_nacimiento = fecha_nacimiento
-        self.direccion_estudiante = direccion_estudiante
+from sqlalchemy import Column, Integer, String,Date,Boolean
+from sqlalchemy.ext.declarative import declarative_base
 
-    def mostrar_info(self):
-        print("=== Información del Estudiante ===")
-        print(f"Matrícula: {self.matricula_estudiante}")
-        print(f"Nombre: {self.nombre_estudiante}")
-        print(f"Correo: {self.correo_estudiante}")
-        print(f"Fecha de Nacimiento: {self.fecha_nacimiento}")
-        print(f"Dirección: {self.dirección_estudiante}")
-
-    def __str__(self):
-        return f"{self.matricula_estudiante} - {self.nombre_estudiante}"
+Base = declarative_base()
+class Estudiante(Base):
+   __tablename__  ='estudiantes'
+   matricula_estudiante = Column(Integer,primary_key=True)
+   nombre_estudiante = Column(String(100), nullable=False)
+   correo_estudiante = Column(String(40), nullable=False)
+   direccion_estudiante = Column(String(30), nullable=False)
+   fecha_nacimiento = Column(Date, nullable=False)
+   habilitado = Column(Boolean, nullable= False)
+   
