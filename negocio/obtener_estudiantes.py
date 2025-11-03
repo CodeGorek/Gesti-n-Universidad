@@ -1,7 +1,13 @@
+from modelos.estudiante import Estudiante
+from datos.obtener_datos import obtener_lista_objetos
+from prettytable import PrettyTable
+
+
+
 def listado_estudiantes():
     tabla_estudiante = PrettyTable()
     tabla_estudiante.field_names = ['matricula_estudiante, nombre_estudiante, correo_estudiante, fecha_nacimiento, direccion_estudiante']
-    listado_estudiantes = obtener_lista_objetos()
+    listado_estudiantes = obtener_lista_objetos(Estudiante)
     if listado_estudiantes:
         for estudiante in listado_estudiantes:
             tabla_estudiante.add_row(

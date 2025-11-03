@@ -1,4 +1,3 @@
-
 from sqlalchemy import Column, Integer, String,Date,Boolean
 from sqlalchemy.ext.declarative import declarative_base
 

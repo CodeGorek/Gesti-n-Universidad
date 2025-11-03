@@ -13,13 +13,13 @@ def obtener_lista_objetos(objeto):
     
 def obtener_nombre_carrera(nombre_carrera):
     listado_marcas = obtener_datos_objetos(nombre_carrera)
-    marca_encontrada = None
+    carrera_encontrada = None
     if listado_marcas:
         for marca in listado_marcas:
             if normalizar_cadena(marca.nombre_marca) == normalizar_cadena(nombre_marca):
-                marca_encontrada = marca
+                carrera_encontrada = marca
                 break
-    return marca_encontrada
+    return carrera_encontrada
 
 
 

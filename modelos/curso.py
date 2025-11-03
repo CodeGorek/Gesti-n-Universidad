@@ -8,7 +8,6 @@ class Curso(Base):
    cod_curso = Column(String(20),primary_key=True)
    nombre_curso = Column(String(30), nullable=False)
    creditos = Column(Integer, nullable=False)
-   cod_carrera = Column(String(30), nullable=False)
    pre_requisitos = Column(String(30), nullable=False)
    
     
