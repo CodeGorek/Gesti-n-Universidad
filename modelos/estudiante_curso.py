@@ -1,15 +1,10 @@
-class EstudianteCurso:
-    def __init__(self, cod_estudiante_curso, matricula_estudiante, cod_curso):
-        self.cod_estudiante_curso = cod_estudiante_curso
-        self.matricula_estudiante = matricula_estudiante  # FK a Estudiante
-        self.cod_curso = cod_curso                  # FK a Curso
-        
-    def mostrar_info(self):
-        print("=== Información de Estudiante-Curso ===")
-        print(f"ID: {self.cod_estudiante_curso}")
-        print(f"Matrícula Estudiante: {self.matricula_estudiante}")
-        print(f"Código Curso: {self.cod_curso}")
-       
+from sqlalchemy import Column, Integer,String, Boolean
+from sqlalchemy.ext.declarative import declarative_base
 
-    def __str__(self):
-        return f"Inscripción {self.cod_estudiante_curso} - Estudiante {self.matricula_estudiante} en {self.cod_curso}"
+Base = declarative_base()
+class Estudiante_Curso(Base):
+   __tablename__  ='estudiante_curso'
+   cod_estudiante_curso = Column(Integer,primary_key=True)
+   matricula_estudiante = Column(Integer, nullable=False)
+   cod_curso = Column(String(20), nullable=False)
+   habilitado = Column(Boolean, nullable=False)

@@ -1,16 +1,12 @@
-class ProfesorCurso:
-    def __init__(self, cod_profesor_curso, cod_curso, cod_profesor):
-        self.cod_profesor_curso = cod_profesor_curso
-        self.cod_curso = cod_curso          # FK a Curso  
-        self.cod_profesor = cod_profesor            # FK a Profesor
+from sqlalchemy import Column, Integer,String, Boolean
+from sqlalchemy.ext.declarative import declarative_base
 
-    def mostrar_info(self):
-        print("=== Información de Profesor-Curso ===")
-        print(f"ID: {self.cod_profesor_curso}")
-        print(f"Código Curso: {self.cod_curso}")
-        print(f"Código Profesor: {self.cod_profesor}")
-
-    def __str__(self):
-        return f"ProfesorCurso {self.cod_profesor_curso} - Curso {self.cod_curso}"
+Base = declarative_base()
+class Profesor_Curso(Base):
+   __tablename__  ='profesor_curso'
+   cod_profesor_curso = Column(Integer,primary_key=True)
+   cod_profesor = Column(Integer, nullable=False)
+   cod_curso = Column(String(20), nullable=False)
+   habilitado = Column(Boolean, nullable=False)
     
     

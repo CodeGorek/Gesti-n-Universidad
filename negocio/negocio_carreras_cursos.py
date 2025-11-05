@@ -1,4 +1,4 @@
-from modelos.carreras_cursos import Carrera_cursos
+from modelos.carreras_cursos import Carrera_Cursos
 from datos.obtener_datos import obtener_lista_objetos
 from prettytable import PrettyTable
 
@@ -6,7 +6,7 @@ from prettytable import PrettyTable
 def listado_carreras_cursos():
     tabla_carrera_cursos = PrettyTable()
     tabla_carrera_cursos.field_names = ['Cod_carrera_curso', 'Cod_curso', 'Cod_carrera']
-    listado_carrera_cursos = obtener_lista_objetos(Carrera_cursos)
+    listado_carrera_cursos = obtener_lista_objetos(Carrera_Cursos)
     if listado_carrera_cursos:
         for carreras_cursos in listado_carrera_cursos:
             tabla_carrera_cursos.add_row(
