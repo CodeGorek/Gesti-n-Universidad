@@ -12,12 +12,12 @@
 #   INICIO DE LA APLICACIÓN
 # ------------------------------
 
-from negocio.negociocarrera import listado_carreras
+from negocio.negocio_carreras import insertar_carrera
 
 
 
 
-listado_carreras()
+insertar_carrera()
 
 
 

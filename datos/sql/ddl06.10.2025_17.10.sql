@@ -9,8 +9,8 @@ CREATE TABLE IF NOT EXISTS carreras(
 );
 
 CREATE TABLE IF NOT EXISTS ESTUDIANTE_CURSO(
-    cod_estudiante_curso INT NOT NULL, AUTO_INCREMENT
-    matricula_estudiante INT NOT NULL, AUTO_INCREMENT
+    cod_estudiante_curso INT NOT NULL AUTO_INCREMENT,
+    matricula_estudiante INT NOT NULL,
     cod_curso VARCHAR(20) NOT NULL,
     constraint pk_estudiante_curso primary key(cod_estudiante_curso), # definir la clave primaria 
     constraint fk_curso foreign key(cod_curso) references curso(cod_curso), # definir la clave foranea 
@@ -30,7 +30,6 @@ CREATE TABLE IF NOT EXISTS cursos(
     cod_curso VARCHAR(20) NOT NULL,
     nombre_curso VARCHAR(30) NOT NULL,
     creditos INT NOT NULL,
-    cod_carrera VARCHAR(30) NOT NULL,
     pre_requisitos VARCHAR(30) NOT NULL,
     constraint pk_cursos primary key(cod_curso), # definir la clave primaria 
     constraint fk_carreras foreign key(cod_carrera) references carreras(cod_carrera) # definir la clave foranea
@@ -47,9 +46,9 @@ CREATE TABLE IF NOT EXISTS estudiantes(
     constraint uq_correo unique(correo_estudiante) # definir la restricción de unicidad
 );  
 
-CREATE TABLE IF NOT EXISTS PROFESOR(
+CREATE TABLE IF NOT EXISTS profesores(
     cod_profesor INT NOT NULL, AUTO_INCREMENT
-    profesor VARCHAR(30) NOT NULL,
+    nombre_profesor VARCHAR(30) NOT NULL,
     correo_profesor VARCHAR(30) NOT NULL,
     especialidad VARCHAR(30),
     constraint pk_profesor primary key(cod_profesor) # definir la clave primaria 

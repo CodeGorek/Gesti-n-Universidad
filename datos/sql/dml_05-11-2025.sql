@@ -1,0 +1,1 @@
+insert into carrera_cursos(cod_carrera_curso, cod_curso, cod_carrera) values (1,'IS-001','INGSIS');

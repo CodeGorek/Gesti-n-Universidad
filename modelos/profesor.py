@@ -1,18 +1,11 @@
+from sqlalchemy import Column, Integer, String,Boolean
+from sqlalchemy.ext.declarative import declarative_base
 
-
-class Profesor:
-    def __init__(self,cod_profesor, profesor, correo_profesor, especialidad):
-        self.cod_profesor = cod_profesor  # PK
-        self.nombre_profesor = profesor
-        self.correo_profesor = correo_profesor
-        self.especialidad = especialidad
-
-    def mostrar_info(self):
-        print("=== Información del Profesor ===")
-        print(f"ID Profesor: {self.cod_profesor}")
-        print(f"Nombre: {self.nombre_profesor}")
-        print(f"Correo: {self.correo_profesor}")
-        print(f"Especialidad: {self.especialidad}")
-
-    def __str__(self):
-        return f"{self.nombre_profesor} ({self.especialidad})"
+Base = declarative_base()
+class Profesor(Base):
+   __tablename__  ='profesores'
+   cod_profesor = Column(Integer,primary_key=True)
+   nombre_profesor = Column(String(30), nullable=False)
+   correo_profesor = Column(String(30), nullable=False)
+   especialidad = Column(String(30), nullable=False)
+   habilitado = Column(Boolean, nullable=False)

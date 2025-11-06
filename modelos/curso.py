@@ -1,5 +1,5 @@
 
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -8,8 +8,7 @@ class Curso(Base):
    cod_curso = Column(String(20),primary_key=True)
    nombre_curso = Column(String(30), nullable=False)
    creditos = Column(Integer, nullable=False)
-   cod_carrera = Column(String(30), nullable=False)
    pre_requisitos = Column(String(30), nullable=False)
-   
+   habilitado = Column(Boolean, nullable=False)
     
     
