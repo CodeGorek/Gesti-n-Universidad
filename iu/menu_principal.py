@@ -9,8 +9,6 @@ from modelos.estudiante import Estudiante
 from modelos.profesor import Profesor
 from modelos.estudiante_curso import EstudianteCurso
 from modelos.profesor_curso import ProfesorCurso
-import os
-import sys
 from datetime import datetime
 
 
