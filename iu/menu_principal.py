@@ -124,7 +124,8 @@ def menu_admin():
                 listado_carreras()
             elif sub_opcion == "0":
                 break
-            
+        elif opcion == "0":
+            break
 def menu_estudiante():
     while True:
         print("\n=== MENÚ ESTUDIANTE ===")  
