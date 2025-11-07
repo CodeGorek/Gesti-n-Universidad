@@ -28,7 +28,7 @@ def menu_admin():
         print("\n=== MENÚ ADMIN ===")
         print("1. Curso")
         print("2. Profesor")
-        print("3. estudiante")
+        print("3. Estudiante")
         print("4. Carrera")
         print("0. Salir")
         opcion = input("Seleccione opción: ")
