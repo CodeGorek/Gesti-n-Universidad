@@ -14,6 +14,7 @@ INSERT INTO carreras (cod_carrera, nombre_carrera, creditos_max_semestre, semest
 ('ARQDIS', 'Arquitectura y Diseño Urbano', 23, 10);
 
 
-Insert into cursos (cod_curso, nombre_curso, creditos, cod_carrera, pre_requisitos) VALUES ('IS-001','Ingenieria en software 1', 10,'INGSIS','Ninguno')
-Insert into cursos (cod_curso, nombre_curso, creditos, cod_carrera, pre_requisitos) VALUES ('FCIU-002','Formacion Ciudadana 1', 6,'INGSIS','Ninguno')
+INSERT INTO cursos (cod_curso, nombre_curso, creditos, cod_carrera, pre_requisitos) VALUES ('IS-001','Ingenieria en software 1', 10,'INGSIS','Ninguno');
+
+INSERT INTO cursos (cod_curso, nombre_curso, creditos, cod_carrera, pre_requisitos) VALUES ('FCIU-002','Formacion Ciudadana 1', 6,'INGSIS','Ninguno');
 
