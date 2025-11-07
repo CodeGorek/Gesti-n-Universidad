@@ -49,10 +49,10 @@ def insertar_profesor():
             # INSTANCIA DE CLASE
             correo_profesor = ingresar_correo_profesor()
             especialidad = ingresar_especialidad()
-            nuevo_profesor = profesor(nombre_profesor=profesor,
+            nuevo_profesor = Profesor(nombre_profesor=profesor,
                                 cod_profesor=buscar_cod_profesor  ,
-                                especialidad = especialidad,
                                 correo_profesor = correo_profesor,
+                                especialidad = especialidad,
                                 habilitado=True)
             insertar_objeto(nuevo_profesor)
     else:
