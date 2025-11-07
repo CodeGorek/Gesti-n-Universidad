@@ -53,7 +53,7 @@ def insertar_estudiante():
             correo_estudiante = ingresar_correo_estudiante()
             direccion_estudiante = ingresar_direccion_estudiante()
             fecha_nacimieto = ingresar_fecha_nacimiento_estudiante()
-            nuevo_estudiante = estudiante(nombre_estudiante=estudiante,
+            nuevo_estudiante = Estudiante(nombre_estudiante=estudiante,
                                 matricula_estudiante=buscar_matricula_estudiante  ,
                                 direccion_estudiante = direccion_estudiante,
                                 fecha_nacimiento = fecha_nacimieto,
@@ -61,7 +61,7 @@ def insertar_estudiante():
                                 habilitado=True)
             insertar_objeto(nuevo_estudiante)
     else:
-        print('Su carrera YA existe en base de datos.')
+        print('Su estudiante YA existe en base de datos.')
 
 def modificar_estudiante():
     estudiante = ingresar_nombre_estudiante()

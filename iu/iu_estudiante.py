@@ -1,3 +1,5 @@
+from auxiliares.fecha_validar import pedir_fecha_valida
+
 def ingresar_nombre_estudiante():
     estudiante = input('Ingrese nombre estuadiante: ')
     return (estudiante)
@@ -7,11 +9,11 @@ def ingresar_nuevo_nombre_estudiante():
     return (estudiante)
 
 def ingresar_matricula_estudiante():
-    matricula_estudiante = input('Ingrese matricula estudiante nuevo: ')
+    matricula_estudiante = int(input('Ingrese matricula estudiante nuevo: '))
     return (matricula_estudiante)
 
 def ingresar_nueva_matricula_estudiante():
-    matricula_estudiante = input('Ingrese NUEVA matricula estudiante: ')
+    matricula_estudiante = int(input('Ingrese NUEVA matricula estudiante: '))
     return (matricula_estudiante)
 
 def ingresar_correo_estudiante():
@@ -31,9 +33,9 @@ def ingresar_nueva_direccion_estudiante():
     return (direccion)
 
 def ingresar_fecha_nacimiento_estudiante():
-    fecha_nacimiento = input('Ingrese fecha de nacimiento de estudiante: ')
+    fecha_nacimiento = pedir_fecha_valida("Ingrese una fecha (AAAA/MM/DD): ")
     return (fecha_nacimiento)
 
 def ingresar_nueva_fecha_nacimiento_estudiante():
-    fecha_nacimiento = input('Ingrese NUEVA fecha de naciemiento de estudiante: ')
+    fecha_nacimiento = pedir_fecha_valida("Ingrese una fecha (AAAA/MM/DD): ")
     return (fecha_nacimiento)
