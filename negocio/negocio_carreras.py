@@ -79,11 +79,19 @@ def modificar_carrera():
 
 def eliminado_logico_carrera():
     carrera = ingresar_nombre_carrera()
+    carrera_encontrado = obtener_nombre_carrera(carrera)
 
-    carrera_encontrada = obtener_nombre_carrera(carrera)
-    if carrera_encontrada:
-        carrera_encontrada.habilitado = False
+    if carrera_encontrado:
+        if carrera_encontrado.habilitado:
+            carrera_encontrado.habilitado = False
+            print(f"carrera '{carrera_encontrado.nombre_carrera}' deshabilitado correctamente.")
+        else:
+            carrera_encontrado.habilitado = True
+            print(f"carrera '{carrera_encontrado.nombre_carrera}' habilitado correctamente.") 
+    
         modificar_objeto()
+    else:
+        print('carrera NO existe, vuelva a intentarlo.')
 
 
 def eliminado_fisico_marca():

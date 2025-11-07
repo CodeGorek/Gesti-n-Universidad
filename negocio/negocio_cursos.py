@@ -58,7 +58,7 @@ def insertar_curso():
                                 habilitado=True)
             insertar_objeto(nuevo_curso)
     else:
-        print('Su carrera YA existe en base de datos.')
+        print('Su curso YA existe en base de datos.')
 
 def modificar_curso():
     curso = ingresar_nombre_curso()
@@ -79,11 +79,19 @@ def modificar_curso():
 
 def eliminado_logico_curso():
     curso = ingresar_nombre_curso()
-
     curso_encontrado = obtener_nombre_curso(curso)
+
     if curso_encontrado:
-        curso_encontrado.habilitado = False
+        if curso_encontrado.habilitado:
+            curso_encontrado.habilitado = False
+            print(f"curso '{curso_encontrado.nombre_curso}' deshabilitado correctamente.")
+        else:
+            curso_encontrado.habilitado = True
+            print(f"curso '{curso_encontrado.nombre_curso}' habilitado correctamente.") 
+    
         modificar_objeto()
+    else:
+        print('curso NO existe, vuelva a intentarlo.')
 
 
 def eliminado_fisico_curso():

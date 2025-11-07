@@ -9,7 +9,7 @@ from datos.eliminar_datos import eliminar_objeto
 
 def listado_profesores():
     tabla_profesor = PrettyTable()
-    tabla_profesor.field_names = ['cod_profesor, nombre_profesor, correo_profesor, especialidad']
+    tabla_profesor.field_names = ['cod_profesor', 'nombre_profesor', 'correo_profesor', 'especialidad']
     listado_profesores = obtener_lista_objetos(Profesor)
     if listado_profesores:
         for profesor in listado_profesores:
@@ -77,12 +77,19 @@ def modificar_profesor():
 
 def eliminado_logico_profesor():
     profesor = ingresar_nombre_profesor()
-
     profesor_encontrado = obtener_nombre_profesor(profesor)
-    if profesor_encontrado:
-        profesor_encontrado.habilitado = False
-        modificar_objeto()
 
+    if profesor_encontrado:
+        if profesor_encontrado.habilitado:
+            profesor_encontrado.habilitado = False
+            print(f"profesor '{profesor_encontrado.nombre_profesor}' deshabilitado correctamente.")
+        else:
+            profesor_encontrado.habilitado = True
+            print(f"profesor '{profesor_encontrado.nombre_profesor}' habilitado correctamente.") 
+    
+        modificar_objeto()
+    else:
+        print('Profesor NO existe, vuelva a intentarlo.')
 
 def eliminado_fisico_profesor():
     while True:

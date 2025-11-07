@@ -16,7 +16,7 @@ def listado_estudiantes():
         for estudiante in listado_estudiantes:
             tabla_estudiante.add_row(
                 [estudiante.matricula_estudiante, estudiante.nombre_estudiante, estudiante.correo_estudiante, estudiante.fecha_nacimiento, estudiante.direccion_estudiante])
-            # print(f'{profesor.id} {marca.nombre_marca} {marca.pais_origen}')
+            # print(f'{estudiante.id} {marca.nombre_marca} {marca.pais_origen}')
         print(tabla_estudiante)
 
 
@@ -85,11 +85,19 @@ def modificar_estudiante():
 
 def eliminado_logico_estudiante():
     estudiante = ingresar_nombre_estudiante()
-
     estudiante_encontrado = obtener_nombre_estudiante(estudiante)
+
     if estudiante_encontrado:
-        estudiante_encontrado.habilitado = False
+        if estudiante_encontrado.habilitado:
+            estudiante_encontrado.habilitado = False
+            print(f"estudiante '{estudiante_encontrado.nombre_estudiante}' deshabilitado correctamente.")
+        else:
+            estudiante_encontrado.habilitado = True
+            print(f"estudiante '{estudiante_encontrado.nombre_estudiante}' habilitado correctamente.") 
+    
         modificar_objeto()
+    else:
+        print('estudiante NO existe, vuelva a intentarlo.')
 
 
 def eliminado_fisico_estudiante():
