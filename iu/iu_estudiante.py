@@ -33,9 +33,9 @@ def ingresar_nueva_direccion_estudiante():
     return (direccion)
 
 def ingresar_fecha_nacimiento_estudiante():
-    fecha_nacimiento = pedir_fecha_valida("Ingrese una fecha (AAAA/MM/DD): ")
+    fecha_nacimiento = pedir_fecha_valida("Ingrese fecha nacimiento (AAAA/MM/DD): ")
     return (fecha_nacimiento)
 
 def ingresar_nueva_fecha_nacimiento_estudiante():
-    fecha_nacimiento = pedir_fecha_valida("Ingrese una fecha (AAAA/MM/DD): ")
+    fecha_nacimiento = pedir_fecha_valida("Ingrese fecha nacimiento (AAAA/MM/DD): ")
     return (fecha_nacimiento)

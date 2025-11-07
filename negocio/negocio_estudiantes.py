@@ -77,7 +77,7 @@ def modificar_estudiante():
         if nueva_direccion_estudiante != '':
             estudiante_encontrado.direccion_estudiante = nueva_direccion_estudiante.title()
         if nuevo_correo_estudiante != '':
-            estudiante_encontrado.correo_estudiante = nuevo_correo_estudiante.title()
+            estudiante_encontrado.correo_estudiante = nuevo_correo_estudiante
         if nueva_fecha_nacimiento != '':
             estudiante_encontrado.fecha_nacimiento = nueva_fecha_nacimiento
         modificar_objeto()
