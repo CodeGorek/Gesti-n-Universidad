@@ -7,7 +7,7 @@ def ingresar_nuevo_nombre_curso():
     return (curso)
 
 def ingresar_cod_curso():
-    cod_curso = input('Ingrese cod carrera nuevo: ')
+    cod_curso = input('Ingrese cod carrera : ')
     return (cod_curso)
 
 def ingresar_nuevo_cod_curso():

@@ -6,7 +6,8 @@ from datos.insertar_datos import insertar_objeto
 from datos.modificar_datos import modificar_objeto
 from datos.eliminar_datos import eliminar_objeto
 from iu.iu_curso import ingresar_nombre_curso,ingresar_cod_curso,ingresar_creditos, ingresar_pre_requisitos, ingresar_nuevo_nombre_curso, ingresar_nuevo_cod_curso, ingresar_nuevos_creditos, ingresar_nuevos_pre_requisitos
-
+from iu.iu_carrera import ingresar_cod_carrera
+from negocio.negocio_carreras import obtener_cod_carrera
 
 def listado_cursos():
     tabla_cursos = PrettyTable()
@@ -42,7 +43,6 @@ def obtener_cod_curso(cod_curso):
 
 def insertar_curso():
     curso = ingresar_nombre_curso()
-
     curso_encontrado = obtener_nombre_curso(curso)
     if curso_encontrado == None:
         buscar_cod_curso = ingresar_cod_curso()
@@ -65,9 +65,12 @@ def modificar_curso():
 
     curso_encontrado = obtener_nombre_curso(curso)
     if curso_encontrado:
+        nuevo_cod_curso = ingresar_nuevo_cod_curso()
         nuevo_nombre_curso = ingresar_nuevo_nombre_curso()
         nuevos_creditos = ingresar_nuevos_creditos()
         nuevo_pre_requisito = ingresar_nuevos_pre_requisitos()
+        if nuevo_cod_curso != '':
+            curso_encontrado.cod_curso = nuevo_cod_curso.upper()
         if nuevo_nombre_curso != '':
             curso_encontrado.nombre_curso = nuevo_nombre_curso.title()
         if nuevos_creditos != '':

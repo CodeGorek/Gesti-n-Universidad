@@ -20,7 +20,7 @@ def menu_principal():
     print('[2] Estudiante')
     print('[0] Salir')
     print('=========================================')
-    opcion = input('Seleccione una opción: ')
+    opcion = input('Seleccione una opción:').strip()
     return opcion
     
 def menu_admin():
@@ -31,99 +31,104 @@ def menu_admin():
         print("3. estudiante")
         print("4. Carrera")
         print("0. Salir")
-        opcion = input("Seleccione opción: ")
+        opcion = input("Seleccione opción: ").strip()
 
         if opcion == "1":
-            print("\n--- Gestión de Cursos ---")
-            print("1. Insertar curso")
-            print("2. Modificar curso")
-            print("3. Habilitar/Deshabilitar curso")
-            print("4. Eliminar curso")
-            print("5. Listado de cursos")
-            print("0. Volver")
-        
-            sub_opcion = input("Seleccione alguna opción: ")
-            if sub_opcion == "1":
-                insertar_curso()
-            elif sub_opcion == "2":
-                modificar_curso()
-            elif sub_opcion == "3":
-                eliminado_logico_curso()
-            elif sub_opcion == "4":
-                eliminado_fisico_curso()
-            elif sub_opcion == "5":
-                listado_cursos()
-            elif sub_opcion == "0":
-                break
+            while True:
+                print("\n--- Gestión de Cursos ---")
+                print("1. Insertar curso")
+                print("2. Modificar curso")
+                print("3. Habilitar/Deshabilitar curso")
+                print("4. Eliminar curso")
+                print("5. Listado de cursos")
+                print("0. Volver")
+            
+                sub_opcion = input("Seleccione alguna opción: ").strip()
+                if sub_opcion == "1":
+                    insertar_curso()
+                elif sub_opcion == "2":
+                    modificar_curso()
+                elif sub_opcion == "3":
+                    eliminado_logico_curso()
+                elif sub_opcion == "4":
+                    eliminado_fisico_curso()
+                elif sub_opcion == "5":
+                    listado_cursos()
+                elif sub_opcion == "0":
+                    break
 
         elif opcion == "2":
-            print("\n--- Gestión de Profesores ---")
-            print("1. Insertar profesor")
-            print("2. Modificar profesor")
-            print("3. Habilitar/Deshabilitar profesor")
-            print("4. Eliminar profesor")
-            print("5. Listado de profesores")
-            print("0. Menú anterior")
+            while True:
+                    
+                print("\n--- Gestión de Profesores ---")
+                print("1. Insertar profesor")
+                print("2. Modificar profesor")
+                print("3. Habilitar/Deshabilitar profesor")
+                print("4. Eliminar profesor")
+                print("5. Listado de profesores")
+                print("0. Menú anterior")
 
-            sub_opcion = input("Elija una opción: ")   
-            if sub_opcion == "1":
-                insertar_profesor()
-            elif sub_opcion == "2":
-                modificar_profesor()
-            elif sub_opcion == "3":
-                eliminado_logico_profesor()
-            elif sub_opcion == "4":
-                eliminado_fisico_profesor()
-            elif sub_opcion == "5":
-                listado_profesores()
-            elif sub_opcion == "0":
-                break
+                sub_opcion = input("Elija una opción: ").strip()   
+                if sub_opcion == "1":
+                    insertar_profesor()
+                elif sub_opcion == "2":
+                    modificar_profesor()
+                elif sub_opcion == "3":
+                    eliminado_logico_profesor()
+                elif sub_opcion == "4":
+                    eliminado_fisico_profesor()
+                elif sub_opcion == "5":
+                    listado_profesores()
+                elif sub_opcion == "0":
+                    break
     
         elif opcion == "3":
-            print("\n--- Gestión de Estudiantes ---")
-            print("1. Insertar estudiante")
-            print("2. Modificar estudiante")
-            print("3. Habilitar/Deshabilitar estudiante")
-            print("4. Eliminar estudiante")
-            print("5. Listado de estudiantes")
-            print("0. Volver al menú anterior")
+            while True:
+                print("\n--- Gestión de Estudiantes ---")
+                print("1. Insertar estudiante")
+                print("2. Modificar estudiante")
+                print("3. Habilitar/Deshabilitar estudiante")
+                print("4. Eliminar estudiante")
+                print("5. Listado de estudiantes")
+                print("0. Volver al menú anterior")
 
-            sub_opcion = input("Seleccione una opción: ")
-            if sub_opcion == "1":
-                insertar_estudiante()
-            elif sub_opcion == "2":
-                modificar_estudiante()
-            elif sub_opcion == "3":
-                eliminado_logico_estudiante()
-            elif sub_opcion == "4":
-                eliminado_fisico_estudiante()
-            elif sub_opcion == "5":
-                listado_estudiantes()
-            elif sub_opcion == "0":
-                break
+                sub_opcion = input("Seleccione una opción: ").strip()
+                if sub_opcion == "1":
+                    insertar_estudiante()
+                elif sub_opcion == "2":
+                    modificar_estudiante()
+                elif sub_opcion == "3":
+                    eliminado_logico_estudiante()
+                elif sub_opcion == "4":
+                    eliminado_fisico_estudiante()
+                elif sub_opcion == "5":
+                    listado_estudiantes()
+                elif sub_opcion == "0":
+                    break
             
         elif opcion == "4":
-            print("\n--- Gestión de Carreras ---")
-            print("1. Insertar carrera")
-            print("2. Modificar carrera")
-            print("3. Habilitar/Deshabilitar carrera")
-            print("4. Eliminar carrera")
-            print("5. Listado de carreras")
-            print("0. Volver al menú anterior")
+            while True:
+                print("\n--- Gestión de Carreras ---")
+                print("1. Insertar carrera")
+                print("2. Modificar carrera")
+                print("3. Habilitar/Deshabilitar carrera")
+                print("4. Eliminar carrera")
+                print("5. Listado de carreras")
+                print("0. Volver al menú anterior")
 
-            sub_opcion = input("Seleccione una opción: ")
-            if sub_opcion == "1":
-                insertar_carrera()
-            elif sub_opcion == "2": 
-                modificar_carrera()
-            elif sub_opcion == "3": 
-                eliminado_logico_carrera()
-            elif sub_opcion == "4": 
-                eliminado_fisico_marca()
-            elif sub_opcion == "5": 
-                listado_carreras()
-            elif sub_opcion == "0":
-                break
+                sub_opcion = input("Seleccione una opción: ").strip()
+                if sub_opcion == "1":
+                    insertar_carrera()
+                elif sub_opcion == "2": 
+                    modificar_carrera()
+                elif sub_opcion == "3": 
+                    eliminado_logico_carrera()
+                elif sub_opcion == "4": 
+                    eliminado_fisico_marca()
+                elif sub_opcion == "5": 
+                    listado_carreras()
+                elif sub_opcion == "0":
+                    break
         elif opcion == "0":
             break
 def menu_estudiante():
@@ -132,7 +137,7 @@ def menu_estudiante():
         print("1. Ver cursos inscritos")
         print("2. Inscribir cursos")
         print("0. Salir") 
-        opcion = input("Seleccione opción: ")
+        opcion = input("Seleccione opción: ").strip()
         if opcion == "1":
             ver_cursos_estudiante()
         elif opcion == "2":
