@@ -10,7 +10,7 @@ from iu.iu_estudiante import ingresar_nombre_estudiante,ingresar_matricula_estud
 
 def listado_estudiantes():
     tabla_estudiante = PrettyTable()
-    tabla_estudiante.field_names = ['matricula_estudiante, nombre_estudiante, correo_estudiante, fecha_nacimiento, direccion_estudiante']
+    tabla_estudiante.field_names = ['matricula_estudiante', 'nombre_estudiante', 'correo_estudiante', 'fecha_nacimiento', 'direccion_estudiante']
     listado_estudiantes = obtener_lista_objetos(Estudiante)
     if listado_estudiantes:
         for estudiante in listado_estudiantes:
@@ -79,7 +79,7 @@ def modificar_estudiante():
         if nuevo_correo_estudiante != '':
             estudiante_encontrado.correo_estudiante = nuevo_correo_estudiante.title()
         if nueva_fecha_nacimiento != '':
-            estudiante_encontrado.fecha_nacimiento = nueva_fecha_nacimiento.title()
+            estudiante_encontrado.fecha_nacimiento = nueva_fecha_nacimiento
         modificar_objeto()
 
 
