@@ -1,5 +1,5 @@
 from negocio.negocio_estudiantes import obtener_matricula_estudiante
-from modelos.estudiante_curso import Estudiante_Curso
+from modelos.estudiante_curso import EstudianteCurso
 from modelos.curso import Curso
 from datos.obtener_datos import obtener_lista_objetos
 from negocio.negocio_cursos import obtener_cod_curso
@@ -13,7 +13,7 @@ from datos.modificar_datos import modificar_objeto
 
 
 def obtener_cod_curso(cod_curso):
-    listado_cursos = obtener_lista_objetos(Estudiante_Curso)
+    listado_cursos = obtener_lista_objetos(EstudianteCurso)
     curso_encontrado = None
     if listado_cursos:
         for curso in listado_cursos:
@@ -31,7 +31,7 @@ def ver_cursos_estudiante():
         return
 
     # Obtenemos todas las inscripciones habilitadas del estudiante
-    cursos_est = sesion.query(Estudiante_Curso).filter_by(matricula_estudiante=matricula, habilitado=True).all()
+    cursos_est = sesion.query(EstudianteCurso).filter_by(matricula_estudiante=matricula, habilitado=True).all()
 
     if not cursos_est:
         print(f"El estudiante {estudiante.nombre_estudiante} no tiene cursos inscritos.")
@@ -54,7 +54,7 @@ def asignar_curso_a_estudiante():
     nombre_estudiante = estudiante.nombre_estudiante
 
     # Contamos cuántos cursos tiene actualmente
-    cursos_actuales = sesion.query(Estudiante_Curso).filter_by(matricula_estudiante=matricula, habilitado=True).all()
+    cursos_actuales = sesion.query(EstudianteCurso).filter_by(matricula_estudiante=matricula, habilitado=True).all()
     if len(cursos_actuales) >= 3:
         print(f"El estudiante {nombre_estudiante} ya tiene 3 cursos inscritos. No puede tomar más.")
         return
@@ -67,13 +67,13 @@ def asignar_curso_a_estudiante():
         return
 
     # Verificamos duplicados
-    ya_tiene = sesion.query(Estudiante_Curso).filter_by(matricula_estudiante=matricula, cod_curso=cod_curso, habilitado=True).first()
+    ya_tiene = sesion.query(EstudianteCurso).filter_by(matricula_estudiante=matricula, cod_curso=cod_curso, habilitado=True).first()
     if ya_tiene:
         print(f"El estudiante {nombre_estudiante} ya está inscrito en el curso {curso.nombre_curso}.")
         return
 
     # Creamos la inscripción
-    nueva_inscripcion = Estudiante_Curso(
+    nueva_inscripcion = EstudianteCurso(
         matricula_estudiante=matricula,
         cod_curso=cod_curso,
         habilitado=True

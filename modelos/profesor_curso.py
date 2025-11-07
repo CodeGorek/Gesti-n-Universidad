@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer,String, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
-class Profesor_Curso(Base):
+class ProfesorCurso(Base):
    __tablename__  ='profesor_curso'
    cod_profesor_curso = Column(Integer,primary_key=True)
    cod_profesor = Column(Integer, nullable=False)
