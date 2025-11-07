@@ -73,7 +73,7 @@ def modificar_carrera():
         if nuevo_creditos_max != '':
             carrera_encontrada.creditos_max_semestre = nuevo_creditos_max
         if nuevo_semestre_duracion != '':
-            carrera_encontrada.semestre_duracion = nuevo_semestre_duracion.title()
+            carrera_encontrada.semestre_duracion = nuevo_semestre_duracion
         modificar_objeto()
 
 
