@@ -72,6 +72,9 @@ def asignar_curso_a_estudiante():
         print(f"El estudiante {nombre_estudiante} ya está inscrito en el curso {curso.nombre_curso}.")
         return
 
+    #Creo variable para guardar nombre antes de el commit
+    nombre_curso_print = curso.nombre_curso
+
     # Creamos la inscripción
     nueva_inscripcion = Estudiante_Curso(
         matricula_estudiante=matricula,
@@ -80,7 +83,7 @@ def asignar_curso_a_estudiante():
     )
     insertar_objeto(nueva_inscripcion)
 
-    print(f"Estudiante {nombre_estudiante} inscrito correctamente en el curso {curso.nombre_curso}.")
+    print(f"Estudiante {nombre_estudiante} inscrito correctamente en el curso {nombre_curso_print}.")
 
 def eliminado_logico_curso():
     curso = ingresar_nombre_curso()
