@@ -8,7 +8,7 @@ from auxiliares.info_aplicacion import nombre_aplicacion
 from negocio.negocio_estudiante_curso import ver_cursos_estudiante
 from negocio.negocio_estudiante_curso import asignar_curso_a_estudiante
 from negocio.negocio_carreras import modificar_carrera, eliminado_logico_carrera, eliminado_fisico_marca, listado_carreras
-
+from negocio.negocio_profesor_cursos import listado_profesores_cursos
 
 # #   MENÚ PRINCIPAL
 
@@ -41,6 +41,7 @@ def menu_admin():
                 print("3. Habilitar/Deshabilitar curso")
                 print("4. Eliminar curso")
                 print("5. Listado de cursos")
+                print("6. Listado de profesores para cursos")
                 print("0. Volver")
             
                 sub_opcion = input("Seleccione alguna opción: ").strip()
@@ -54,6 +55,8 @@ def menu_admin():
                     eliminado_fisico_curso()
                 elif sub_opcion == "5":
                     listado_cursos()
+                elif sub_opcion == "6":
+                    listado_profesores_cursos()
                 elif sub_opcion == "0":
                     break
 
